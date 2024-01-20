@@ -1,2 +1,2 @@
-## Website of Divra Userscript
-This website is open source lol
+## Divra's official github repo :)
+All of this is open source
