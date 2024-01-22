@@ -24,7 +24,7 @@
       <p id="4">Divra works by pasting the code in a user script manager preferably Tampermonkey and just going into bloxd should automatically work. You don't need to know any Javascript to use this user script because it's already coded for you. </p></div>
     <div id="6" style="position:absolute; top:144px; left:450px; border-style:outset; width:30%; height:290px; background-color:lightgrey;">
       <h2 id="7"><span style="user-select:none; color:lightgrey;">bloxma</span>Why Divra</h2>
-      <p>Divra may be a new Userscript but updates are coming in fast! There is no excuse to try Divra right away! You can delete it in the user script manager dashboard if you don't like it! Divra is also very simple and easy to use. If you need any help, just simpally join our discord community; they are very kind and helpful. </p></div>
+      <p>Divra may be a new Userscript but updates are coming in fast! There is no excuse to try Divra right away! You can delete it in the user script manager dashboard if you don't like it! Divra is also very simple and easy to use. If you need any help, just simply join our discord community; they are very kind and helpful. </p></div>
     
     </div>
     
@@ -138,12 +138,15 @@
     </div>
     <script src="./Site js.js" ></script>
     <script>
-      function copey (){
-var txte = "Divra Bloxd Userscript / Modded client made by @BloxdMaster; https://blxcode.github.io/Divra-Modded-Client/";
-    txte.select();
+        var copyText = document.getElementById("copypaste");
 
-    document.execCommand("copy");
-    console.log('"'+txte+"\"Copied sucsessfully");
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
       }
     </script>
   </body>
