@@ -1,201 +1,797 @@
-    // ==UserScript==
-    // @name         Divra Bloxd.io Userscript / Modded Client
-    // @namespace    https://blxcode.github.io/Divra-Userscript-Website/
-    // @compatible   chrome Tampermonkey
-    // @compatible   safari Tampermonkey
-    // @compatible   edge Tampermonkey
-    // @compatible   opera Tampermonkey
-    // @compatible firefox Tampermonkey
-    // @run-at document-idl
-    // @version  2-alpha.5
-    // @copyright This Modded Client is open source. Anyone can redistribuate this. You may use the images provided in this client on youtube, twitter, instagram, you name it. But any open source version of this should not have the images.
-    // @description  This Userscript is for bloxd.io and it will allow you to get custom crosshairs, make your hotbar insaily better, get brightness, contrast, cps, keystrokes, and MORE! in the comming updates! Thanks to andreypidd from discord for helping me out figure out the bloxd.io inner code. :)
-    // @author       BloxdMaster
-    // @match        https://*.bloxd.io
-    // @match        https://*.bloxdhop.io/*
-    // @match        https://*.bloxdk12.com/*
-    // @match        https://*.doodlecube.io/*
-    // @supportURL https://blxcode.github.io/Divra-Userscript-Website/
-    // @match        https://*.eviltower.io/*
-    // @license MIT
-    // @icon         https://www.google.com/s2/favicons?sz=64&domain=bloxd.io
-    // @grant        none
-    // @downloadURL https://update.greasyfork.org/scripts/483552/Divra%20Bloxd%20UserScript%20BETA%20TESTING.user.js
-    // @updateURL https://update.greasyfork.org/scripts/483552/Divra%20Bloxd%20UserScript%20BETA%20TESTING.meta.js
-    // ==/UserScript==
+// ==UserScript==
+// @name         Divra Bloxd.io Userscript / Modded Client BETA VERSION
+// @namespace    https://blxcode.github.io/Divra-Userscript-Website/
+// @compatible   chrome Tampermonkey
+// @compatible   safari Tampermonkey
+// @compatible   edge Tampermonkey
+// @compatible   opera Tampermonkey
+// @compatible firefox Tampermonkey
+// @run-at document-idl
+// @version  2-alpha.6
 
-    (function () {
-        "use strict";
-        var cps = 0;
-        function name () {
-            document.getElementsByClassName("PlayerNameInfoNameClickable")[0].innerHTML="BloxdMaster_";
-        }
+// @description  This Userscript is for bloxd.io and it will allow you to get custom crosshairs, make your hotbar insaily better, get brightness, contrast, cps, keystrokes, and MORE! in the comming updates! Thanks to andreypidd from discord for helping me out figure out the bloxd.io inner code. :)
+// @author       BloxdMaster
+// @match        https://*.bloxd.io
+// @match        https://*.bloxdhop.io/*
+// @match        https://*.bloxdk12.com/*
+// @match        https://*.doodlecube.io/*
+// @supportURL https://blxcode.github.io/Divra-Userscript-Website/
+// @match        https://*.eviltower.io/*
 
-        var bloxSS = document.createElement("button");
-        const d = new Date();
-        var timerstart = document.createElement("button");
+// @icon         https://cdn.discordapp.com/attachments/1150798709580374036/1198864203298127892/divra.png?ex=65c0744b&is=65adff4b&hm=35bc9818aaf199eee8e3c26826f61a5cb079423dcf8ab18a8019cc538201e592&
+// @grant        none
+// @downloadURL https://update.greasyfork.org/scripts/483552/Divra%20Bloxd%20UserScript%20BETA%20TESTING.user.js
+// @updateURL https://update.greasyfork.org/scripts/483552/Divra%20Bloxd%20UserScript%20BETA%20TESTING.meta.js
+// ==/UserScript==
 
-        var divraButts = document.createElement("div");
+(function () {
+    //Made by BloxdMaster
+    //Made with Javascript
+    //Bluify and andreypidd helped and coded 0.01% of this :) aka 1 line of code
+    //Divra is a userscript made by BloxdMaster. If you dont believe then u dont believe that Arthur is the creator of bloxd.
+    //if u copy than these lines of code should be removed. if not ur dumb.
+    //Divra's logo must not be copied. neither the old nor the new. if not, ur dumb and ur in prizon and i earn money
+    //Blxm
+    //Bxm
+    //©Few rightes reserved. i think thats how u use copyright
+    //plz read code first before u install aney other client.
+    //there might be funny jokes,
+    //people using my script must put line 40 on their code
+    //Divra Bloxd.io Userscript / Modded Client v<version u copied> copied in some of the code. subscribe to bloxdmaster on youtube or else.
+    //if lightining client doesnt put his i'll personally call joe biden and make put lightnint in lightning client. NO not really, but i'll report it again.
+    //okay that was a weird paragraph thx for reading.
+    //Happy Divraing :)
 
-        divraButts.style.zIndex="3";
-        var timerend = document.createElement("button");
-        divraButts.style.top="0px";
-        divraButts.style.right="0px";
-        divraButts.style.position="fixed";
-        divraButts.style.color="black";
-        divraButts.style.backgroundColor="white";
-        divraButts.innerHTML="Divra Quick Setup";
-        divraButts.id="divraButtons";
-        divraButts.title="Divra Buttons";
+    //u must be able to use divra or else .
+    //#prayforbloxdmaster
 
-        //document.getElementsByClassName("ForceRotateWrapper")[0].hidden=true;
-        //The Auto Open Bloxd
-        document.getElementsByClassName("Title")[0].innerHTML="<img src='https://www.google.com/s2/favicons?sz=64&domain=bloxd.io' alt='bloxd.io logo' title='this is the official logo for bloxd btw' style='  image-rendering: pixelated; width:5%; height:5%;'>Divra for Bloxd";
-        document.getElementsByClassName("Title")[0].title="Divra btw the name was chosen because of randomosy and my knowlage of code.";
+    //life as a bloxdmaster, sleep record edit eat code code code code code code code code code code code code code code code so much that i cant record or edit code code eat code code code code go to the eye doctor code code code code code code code code go to the eye doctor code code code code code code code code code go to the eye doctor code code code code code code code code code murder 100 players in bloxd.io in pvp world code code code code code code code code code code am i exaterating, yes. code code code code code code eat sleep sleep code while sleeping dream about code code code code code code
+    //i was exaterating lol. dont be surprized. btw, as of version 2, 1 day was used in codeing!!!!!!
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
 
-        //creations
+    "use strict";
+    var cps = 0;
+    function name () {
+        document.getElementsByClassName("PlayerNameInfoNameClickable")[0].innerHTML="BloxdMaster_";
+    }
 
-        console.log("Loading Divra Client...");
-        var divra = document.createElement("div");
-        var divraRMB = document.createElement("p");
-        var divraLMB = document.createElement("p");
-        divra.innerHTML="";
-        var imgofme = document.createElement("img");
-        imgofme.style.borderRadius="2000px";
-        imgofme.style.width="20px";
+    var bloxSS = document.createElement("button");
+    const d = new Date();
+    var timerstart = document.createElement("button");
 
-        imgofme.style.display="inline-block";
-        var cpsSee = document.createElement("p");
-        cpsSee.innerHTML=" Cps: ";
-        cpsSee.style.display="inline-block";
-        imgofme.draggable=false;
-        divra.appendChild(cpsSee);
-        imgofme.src="https://yt3.ggpht.com/mMOtLjhx8Sdoyiq7y_KXN5QaYVam6cBDgs5E6hz2ZyPixhCTcjfUvCa4N74uXgwttUszsmI3Lg=s600-c-k-c0x00ffffff-no-rj-rp-mo";
-        imgofme.alt="BloxdMaster Logo";
-        var brick = document.createElement("br");
-        divra.appendChild(brick);
-        document.getElementsByClassName("DiscordButtonDiv")[0].draggable=false;
-        divraRMB.style.padding="2px";
-        divraRMB.innerHTML="RMB ";
-        divra.appendChild(divraLMB);
-        divraRMB.style.borderStyle="solid";
+    var divraButts = document.createElement("div");
+    divraButts.style.zIndex="3";
+    var timerend = document.createElement("button");
 
-        divraRMB.style.display="inline-block";
-        divraRMB.style.marginLeft="2px";
-        function makedivra (vari,index){
-            let stuff=vari.innerHTML=index+" ";
-            vari.style.display="inline-block";
-            vari.style.borderStyle="solid";
-            vari.style.padding= "2px";
-            vari.style.marginLeft="2px";
+    divraButts.style.top="0px";
+    divraButts.style.right="0px";
+    divraButts.style.position="fixed";
+    divraButts.style.color="black";
+    divraButts.style.backgroundColor="white";
+    divraButts.innerHTML="Divra Quick Setup";
+    divraButts.id="divraButtons";
+    divraButts.title="Divra Buttons";
 
-            return stuff;
-        }
-        var customizeThumb = document.createElement("button");
-        var divraW = document.createElement("p");
-        divra.appendChild(divraW);
-        makedivra(divraW,"W");
-        divraW.style.marginLeft="2px";
-        divraW.style.padding="2px";
-        var changeCrosshair = document.createElement("select");
-        divraLMB.style.borderStyle="solid";
-        divraLMB.style.marginLeft="2px";
-        divraLMB.style.padding="2px";
-        divra.appendChild(divraRMB);
-        var nothing = document.createElement("br");
+    //document.getElementsByClassName("ForceRotateWrapper")[0].hidden=true;
+    //The Auto Open Bloxd
+    document.getElementsByClassName("Title")[0].innerHTML="<img src='https://www.google.com/s2/favicons?sz=64&domain=bloxd.io' alt='bloxd.io logo' title='this is the official logo for bloxd btw' style='  image-rendering: pixelated; width:5%; height:5%;'>Divra for Bloxd";
+    document.getElementsByClassName("Title")[0].title="Divra btw the name was chosen because of randomosy and my knowlage of code.";
 
-        divraLMB.style.display="inline-block"
-        divraLMB.innerHTML="LMB ";
-        var divraA = document.createElement("p");
-        divra.appendChild(nothing);
-        divraA.style.marginLeft="2px";
-        var divraShift = document.createElement("p");
-        divra.appendChild(divraShift);
-        makedivra(divraShift,"Shift");
-        divra.appendChild(divraA);
-        divraA.style.borderStyle="solid";
-        divra.style.left="2.5px";
-        divraA.style.padding="2px";
-        divraA.innerHTML="A ";
-        divraA.style.display="inline-block"
-        var divraS = document.createElement("p");
-        divra.appendChild(divraS);
-        makedivra(divraS,"S");
-        var divraD = document.createElement("p");
-        divra.appendChild(divraD);
-        makedivra(divraD,"D");
-        var divraC = document.createElement("p");
-        divra.appendChild(divraC);
-        makedivra(divraC,"Crouch");
-        var divraSpace=document.createElement("p");
-        var brq = document.createElement("br");
-        brq.style.margin="0px,0px,0px,0px";
-        divra.appendChild(brq);
-        divra.appendChild(divraSpace);
-        makedivra(divraSpace, "Space");
-        divra.id="divra";
-        divra.style.position= "fixed";
-        // document.getElementById("root").style.overflow= "hidden";
-        divra.style.bottom="0px";
-        divra.style.zIndex="3";
-        divra.style.width="15%";
-        divra.style.height="32.5%";
+    //creations
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
+    //#prayforbloxdmaster
 
 
-        divra.style.color="white";
-        divra.style.borderRadius="10px";
-        divra.style.padding="5px";
-        divra.style.border="none";
-        var hid = document.createElement("p");
-        hid.appendChild(divra);
-        divra.title="divra client: and keys pressed.  There is a bug, that it won't show you keys pressed after more than 2-3 keys already pressed";
-        var button_of_doom = document.createElement("button");
-        button_of_doom.innerHTML="<i class='fa-solid fa-power-off'></i> Turn divra off";
-        button_of_doom.style.cursor="pointer";
-        hid.innerHTML="hide";
-        var againbr = document.createElement("br");
-        divraButts.style.borderRadius="50px";
-        divraButts.style.padding="7px";
-        //divraButts.appendChild(button_of_doom);
+    console.log("Loading Divra Client...");
+    var divra = document.createElement("div");
+    var divraRMB = document.createElement("p");
+    var divraLMB = document.createElement("p");
+    divra.innerHTML="";
+    var imgofme = document.createElement("img");
+    imgofme.style.borderRadius="2000px";
+    imgofme.style.width="20px";
 
-        button_of_doom.style.borderRadius="10px";
-        button_of_doom.style.backgroundColor="rgb(222,222,222)";
-        button_of_doom.style.border="none";
-        button_of_doom.style.padding="5px";
-        button_of_doom.style.cursor="pointer";
-        button_of_doom.tabIndex="-1";
-        button_of_doom.addEventListener("mouseover",()=>{
-            button_of_doom.style.transform="scale(1.1)";
-        });
-        button_of_doom.addEventListener("mouseout",()=>{
-            button_of_doom.style.transform="scale(1.0)";
-        });
-        button_of_doom.title="Turn divra off. To turn back on, press ctrl + r.";
+    imgofme.style.display="inline-block";
+    var cpsSee = document.createElement("p");
+    cpsSee.innerHTML=" Cps: ";
+    cpsSee.style.display="inline-block";
+    imgofme.draggable=false;
+    divra.appendChild(cpsSee);
+    imgofme.src="https://yt3.ggpht.com/mMOtLjhx8Sdoyiq7y_KXN5QaYVam6cBDgs5E6hz2ZyPixhCTcjfUvCa4N74uXgwttUszsmI3Lg=s600-c-k-c0x00ffffff-no-rj-rp-mo";
+    imgofme.alt="BloxdMaster Logo";
+    var brick = document.createElement("br");
+    divra.appendChild(brick);
+    document.getElementsByClassName("DiscordButtonDiv")[0].draggable=false;
+    divraRMB.style.padding="2px";
+    divraRMB.innerHTML="RMB ";
+    divra.appendChild(divraLMB);
+    divraRMB.style.borderStyle="solid";
 
-        button_of_doom.addEventListener("click",()=>{
-            divra.hidden=true;
-            divraButts.hidden=true;
-            document.getElementsByClassName("Title")[0].innerHTML="Bloxd.io";
-        });
+    divraRMB.style.display="inline-block";
+    divraRMB.style.marginLeft="2px";
+    function makedivra (vari,index){
+        let stuff=vari.innerHTML=index+" ";
+        vari.style.display="inline-block";
+        vari.style.borderStyle="solid";
+        vari.style.padding= "2px";
+        vari.style.marginLeft="2px";
 
-        divra.addEventListener("mouseover",()=>{
-            divra.style.cursor="auto";
-        });
-        document.getElementById("root").appendChild(divra);
+        return stuff;
+    }
+    var customizeThumb = document.createElement("button");
+    var divraW = document.createElement("p");
+    divra.appendChild(divraW);
+    makedivra(divraW,"W");
+    divraW.style.marginLeft="2px";
+    divraW.style.padding="2px";
+    var changeCrosshair = document.createElement("select");
+    divraLMB.style.borderStyle="solid";
+    divraLMB.style.marginLeft="2px";
+    divraLMB.style.padding="2px";
+    divra.appendChild(divraRMB);
+    var nothing = document.createElement("br");
 
-        //icon changes
-        /* document.getElementsByTagName("link")[2].href="https://i.imgur.com/uMvDbDr.png";
+    divraLMB.style.display="inline-block"
+    divraLMB.innerHTML="LMB ";
+    var divraA = document.createElement("p");
+    divra.appendChild(nothing);
+    divraA.style.marginLeft="2px";
+    var divraShift = document.createElement("p");
+    divra.appendChild(divraShift);
+    makedivra(divraShift,"Shift");
+    divra.appendChild(divraA);
+    divraA.style.borderStyle="solid";
+    divra.style.left="2.5px";
+    divraA.style.padding="2px";
+    divraA.innerHTML="A ";
+    divraA.style.display="inline-block"
+    var divraS = document.createElement("p");
+    divra.appendChild(divraS);
+    makedivra(divraS,"S");
+    var divraD = document.createElement("p");
+    divra.appendChild(divraD);
+    makedivra(divraD,"D");
+    var divraC = document.createElement("p");
+    divra.appendChild(divraC);
+    makedivra(divraC,"Crouch");
+    var divraSpace=document.createElement("p");
+    var brq = document.createElement("br");
+    brq.style.margin="0px,0px,0px,0px";
+    divra.appendChild(brq);
+    divra.appendChild(divraSpace);
+    makedivra(divraSpace, "Space");
+    divra.id="divra";
+    divra.style.position= "fixed";
+    // document.getElementById("root").style.overflow= "hidden";
+    divra.style.bottom="0px";
+    divra.style.zIndex="3";
+    divra.style.width="15%";
+    divra.style.height="32.5%";
+
+    var tpak = document.querySelector("#root > div.WholeAppWrapper > div > div.GameBackgroundScreen > div > div.SettingsMenuRight > div.SettingsTextDiv > input");;
+    divra.style.color="white";
+    divra.style.borderRadius="10px";
+    divra.style.padding="5px";
+    divra.style.border="none";
+    var hid = document.createElement("p");
+    hid.appendChild(divra);
+    divra.title="divra client: and keys pressed.  There is a bug, that it won't show you keys pressed after more than 2-3 keys already pressed";
+    var button_of_doom = document.createElement("button");
+    button_of_doom.innerHTML="<i class='fa-solid fa-power-off'></i> Turn divra off";
+    button_of_doom.style.cursor="pointer";
+    hid.innerHTML="hide";
+    var againbr = document.createElement("br");
+    divraButts.style.borderRadius="50px";
+    divraButts.style.padding="7px";
+    //divraButts.appendChild(button_of_doom);
+    var chatin = document.querySelector("#root > div.WholeAppWrapper > div > div.TopLeftElements > div.Chat > div.ChatInputWrapper > input");
+    button_of_doom.style.borderRadius="10px";
+    button_of_doom.style.backgroundColor="rgb(222,222,222)";
+    button_of_doom.style.border="none";
+    button_of_doom.style.padding="5px";
+    button_of_doom.style.cursor="pointer";
+    button_of_doom.tabIndex="-1";
+    button_of_doom.addEventListener("mouseover",()=>{
+        button_of_doom.style.transform="scale(1.1)";
+    });
+    button_of_doom.addEventListener("mouseout",()=>{
+        button_of_doom.style.transform="scale(1.0)";
+    });
+    button_of_doom.title="Turn divra off. To turn back on, press ctrl + r.";
+
+    button_of_doom.addEventListener("click",()=>{
+        divra.hidden=true;
+        divraButts.hidden=true;
+        document.getElementsByClassName("Title")[0].innerHTML="Bloxd.io";
+    });
+
+    divra.addEventListener("mouseover",()=>{
+        divra.style.cursor="auto";
+    });
+    document.getElementById("root").appendChild(divra);
+
+    //icon changes
+    /* document.getElementsByTagName("link")[2].href="https://i.imgur.com/uMvDbDr.png";
      document.getElementsByTagName("link")[2].sizes="512x512";
     document.getElementsByTagName("link")[1].href="https://i.imgur.com/uMvDbDr.png";
      document.getElementsByTagName("link")[1].sizes="512x512";
     document.getElementsByTagName("link")[0].href="https://i.imgur.com/uMvDbDr.png";
      document.getElementsByTagName("link")[0].sizes="512x512";*/
-        //document.getElementsByTagName("script")[1].remove();
-        //KEY DOWN
-        var divraSB;
+    //document.getElementsByTagName("script")[1].remove();
+    //KEY DOWN
+    var divraSB;
+    var keysElement = document.createElement("div");
+    keysElement.className="Divra-keyup/down";
+    keysElement.style.display="none";
+    keysElement.style.zIndex="50";
+    keysElement.style.width="100%";
+    keysElement.style.height="100%";
+    keysElement.style.position="fixed";
+    keysElement.style.top="0px";
+    keysElement.style.right="0px";
+    var isChatTyping=false;
+    document.getElementById("root").appendChild(keysElement);
+    document.body.addEventListener("keydown",(eventis)=>{
 
-        document.body.addEventListener("keydown",(eventis)=>{
-
+        chatin.addEventListener("focus",()=>{
+            isChatTyping=true;
+        });
+        if(isChatTyping==false){
             let key = eventis.key;
 
 
@@ -218,120 +814,122 @@
             if (key == "c" || key == "C") {
                 divraC.style.backgroundColor="black";
             }
-                        if (key == "z" || key == "Z") {
+            if (key == "z" || key == "Z") {
                 divraC.style.backgroundColor="black";
             }
-                   if (key == "<" || key == "Control") {
+            if (key == "<" || key == "Control") {
                 divraC.style.backgroundColor="black";
             }
             if (key == " " || key=="space" ) {
                 divraSpace.style.backgroundColor="black";
             }
+        }else{
+            console.log("Chatting Detected. Not showing keyup/keydown");
+
+        }
+    });
+
+    function okeyup (eventis) {
+        chatin.addEventListener("focus",()=>{
+            isChatTyping=true;
         });
+        if(isChatTyping==false){
+            let key = eventis.key;
 
-function okeyup (eventis) {
-     let key = eventis.key;
+            if(key=="k"){
 
-                if(key=="k"){
-
-                    timerstart.click();
+                timerstart.click();
+            }
+            if(key=="l"){
+                if(divraButts.hidden==true){
+                    divraButts.hidden=false;
+                }else{
+                    divraButts.hidden=true;
                 }
-                if(key=="l"){
-                    if(divraButts.hidden==true){
-                        divraButts.hidden=false;
-                    }else{
-                        divraButts.hidden=true;
-                    }
-                }
+            }
 
-                if(key==";"){
-                    if(divra.hidden==true){
-                        divra.hidden=false;
-                    }else{
-                        divra.hidden=true;
-                    }
-
-                }
-                if(key=="`"){
-                    bloxSS.click();
-                }
-                if(key=="j"){
-                    timerend.click();
+            if(key==";"){
+                if(divra.hidden==true){
+                    divra.hidden=false;
+                }else{
+                    divra.hidden=true;
                 }
 
+            }
+            if(key=="`"){
+                bloxSS.click();
+            }
+            if(key=="j" ||key=="J"){
+                timerend.click();
+            }
 
 
 
 
-                if (key == "a" || key == "A") {
-                    divraA.style.background="none";
-                }
-                if (key == "s" || key == "S") {
-                    divraS.style.background="none";
-                }
-                if (key == "d" || key == "D") {
-                    divraD.style.background="none";
-                }
-                if (key == "w" || key == "W") {
-                    divraW.style.background="none";
-                }
-                if (key == "Shift") {
-                    divraShift.style.background="none";
-                }
-                if (key == "c" || key == "C") {
-                    divraC.style.background="none";
-                }
-                if (key.ctrlKey|| key=="CapsLock") {
-                    divraC.style.background="none";
-                }
-                if (key == " " || key=="space" ) {
-                    divraSpace.style.background="none";
-                }
-        if (key == "z" || key == "Z") {
+
+            if (key == "a" || key == "A") {
+                divraA.style.background="none";
+            }
+            if (key == "s" || key == "S") {
+                divraS.style.background="none";
+            }
+            if (key == "d" || key == "D") {
+                divraD.style.background="none";
+            }
+            if (key == "w" || key == "W") {
+                divraW.style.background="none";
+            }
+            if (key == "Shift") {
+                divraShift.style.background="none";
+            }
+            if (key == "c" || key == "C") {
                 divraC.style.background="none";
             }
-                   if (key == "<" || key == "Control") {
+            if (key.ctrlKey|| key=="CapsLock") {
                 divraC.style.background="none";
             }
-                if(key=="o"|| key=="Escape"){
-                    //<div class="SettingsSectionTitle">&nbsp;Graphics</div>
-                    divraSB = document.createElement("div");
-                    divraSB.className="SettingsSectionTitle";
-                    divraSB.innerHTML="&nbsp;Divra Settings";
-                    divraSB.hidden=true;
-                    document.getElementsByClassName("SettingsCategoriesList")[0].appendChild(divraSB);
-                   setInterval(makeCh,5000);
-                    divraSB.addEventListener("click",()=>{
-                        //dostuff
-                        document.getElementsByClassName("SettingsSectionTitle")[0].classList.remove("ActiveSettingsSectionTitle");
-                        document.getElementsByClassName("SettingsSectionTitle")[1].classList.remove("ActiveSettingsSectionTitle");
-                        document.getElementsByClassName("SettingsSectionTitle")[2].classList.remove("ActiveSettingsSectionTitle");
-                        document.getElementsByClassName("SettingsMenuRight")[0].innerHTML="";
-                        divraSB.classList.add("ActiveSettingsSectionTitle");
-                        var divraSB1_1 = document.createElement("div");
-                        divraSB1_1.innerHTML=' <div class="CheckboxContainer"> <div class="CheckboxInputAndText"> <label class="CheckboxClickableLabel"> <span class="rc-checkbox rc-checkbox-checked"><input type="checkbox" class="rc-checkbox-input" value="" checked=""><span class="rc-checkbox-inner"></span></span></label><div class="CheckboxText">Show Coordinates</div></div></div>';
+            if (key == " " || key=="space" ) {
+                divraSpace.style.background="none";
+            }
+            if (key == "z" || key == "Z") {
+                divraC.style.background="none";
+            }
+            if (key == "<" || key == "Control") {
+                divraC.style.background="none";
+            }
+            if(key=="o"|| key=="Escape"){
+                //<div class="SettingsSectionTitle">&nbsp;Graphics</div>
+                divraSB = document.createElement("div");
+                divraSB.className="SettingsSectionTitle";
+                divraSB.innerHTML="&nbsp;Divra Settings";
+                divraSB.hidden=true;
+                document.getElementsByClassName("SettingsCategoriesList")[0].appendChild(divraSB);
+              mch= setInterval(makeCh,5000);
+                divraSB.addEventListener("click",()=>{
+                    //dostuff
+                    document.getElementsByClassName("SettingsSectionTitle")[0].classList.remove("ActiveSettingsSectionTitle");
+                    document.getElementsByClassName("SettingsSectionTitle")[1].classList.remove("ActiveSettingsSectionTitle");
+                    document.getElementsByClassName("SettingsSectionTitle")[2].classList.remove("ActiveSettingsSectionTitle");
+                    document.getElementsByClassName("SettingsMenuRight")[0].innerHTML="";
+                    divraSB.classList.add("ActiveSettingsSectionTitle");
+                    var divraSB1_1 = document.createElement("div");
+                    divraSB1_1.innerHTML=' <div class="CheckboxContainer"> <div class="CheckboxInputAndText"> <label class="CheckboxClickableLabel"> <span class="rc-checkbox rc-checkbox-checked"><input type="checkbox" class="rc-checkbox-input" value="" checked=""><span class="rc-checkbox-inner"></span></span></label><div class="CheckboxText">Show Coordinates</div></div></div>';
 
-                    });
+                });
 
-                }
+            }
+        }else{
+            console.log("Chatting Detected. Say lol guys");
 
 
-
-}
+        }
 
         document.body.addEventListener("keyup",okeyup);
 
 
 
 
-        document.body.addEventListener("keydown",(we)=>{
-            if(we.key=="w"||we.key=="W"){
-                console.log("siryessir");
-                //KEYUP
-            }else{
-                console.log("whoops");
-            }
-        });
+
 
         //mouse events
         /*  var canvasID = document.getElementById("noa-canvas");
@@ -463,9 +1061,9 @@ function okeyup (eventis) {
 
         var lS = localStorage.getItem("Crosshair");
 
-console.log(lS+" localstoragecrosshairvalue");
+        console.log(lS+" localstoragecrosshairvalue");
 
-console.log(localStorage.getItem("Crosshair")+" localstoragecrosshairvalue");
+        console.log(localStorage.getItem("Crosshair")+" localstoragecrosshairvalue");
 
         if(lS==null || lS==undefined){
             localStorage.setItem("Crosshair","+");
@@ -476,17 +1074,17 @@ console.log(localStorage.getItem("Crosshair")+" localstoragecrosshairvalue");
         console.log("s"+String(changeCrosshair.value)+"booedsjf");
 
 
-console.log(lS+" localstoragecrosshairvalue");
-changeCrosshair.addEventListener("change",()=>{
-localStorage.setItem("Crosshair",changeCrosshair.value);
-    console.log(localStorage.getItem("Crosshair")+" lcchvalue");
-});
+        console.log(lS+" localstoragecrosshairvalue");
+        changeCrosshair.addEventListener("change",()=>{
+            localStorage.setItem("Crosshair",changeCrosshair.value);
+            console.log(localStorage.getItem("Crosshair")+" lcchvalue");
+        });
         function makeCh () {
-             changeCrosshair.value=String(lS);
+            changeCrosshair.value=String(lS);
             if(document.querySelector(".CrossHair")){
                 if(document.getElementsByClassName("CrossHair")[0].innerHTML=="+"){
                     customizeThumb.style.zIndex="0";
-                  gbs.remove();
+                    gbs.remove();
                     divraButts.hidden=true;
                     clearInterval(mch);
                 }
@@ -614,14 +1212,14 @@ localStorage.setItem("Crosshair",changeCrosshair.value);
                     document.getElementsByClassName("CrossHair")[0].innerHTML=changeCrosshair.value;
                     document.getElementsByClassName("CrossHair")[0].style.backgroundImage='none';
                 }
-                
+
                 console.clear();
             } }
 
 
 
 
-  var gbs = document.createElement("div");
+        var gbs = document.createElement("div");
 
 
 
@@ -895,7 +1493,7 @@ localStorage.setItem("Crosshair",changeCrosshair.value);
 
         //<i class="fa-solid fa-gear"></i>
         //document.getElementsByClassName("TopRightElements")[0].hidden=true;
-       // document.getElementsByClassName("HomeScreenBottomRight")[0].hidden=true;
+        // document.getElementsByClassName("HomeScreenBottomRight")[0].hidden=true;
         var settingzSEL = document.createElement("button");
         settingzSEL.title="Divra Settings";
         settingzSEL.innerHTML=" <i class='fa-solid fa-gear'></i> ";
@@ -1386,48 +1984,48 @@ localStorage.setItem("Crosshair",changeCrosshair.value);
         var thumMenu = document.createElement("div");
         customizeThumb.addEventListener("click",()=>{
             var gbs = document.createElement("div");
-           
+
             customizeThumb.hidden=true;
             gbs.className="GameBackgroundScreen " ;
-gbs.style.display="flex";
-gbs.style.zIndex="4";
-gbs.addEventListener("click",()=>{
-gbs.remove();
-customizeThumb.hidden=false;
-});
-document.getElementById("root").appendChild(gbs);
-gbs.appendChild(thumMenu);
- thumMenu.className="SettingsMenu SmallTextLight";
-        thumMenu.style.fixed=true;
-        thumMenu.style.width="75%";
-        thumMenu.style.height="75%";
-        var exitbutton = document.createElement("div");
-        exitbutton.id="bues" 
-        exitbutton.className="NewButton RedButton SettingsResumeExitButton SettingsExitButton";
-        var exitbutton1 = document.createElement("div");
-        exitbutton1.className="ButtonBottomBorder";
-        exitbutton.appendChild(exitbutton1);
-        var exitbutton2=document.createElement("div");
-        exitbutton2.className="ButtonTopBorder"
-        exitbutton.appendChild(exitbutton2);
-        var scl = document.createElement("div");
-        scl.appendChild(exitbutton);
-        exitbutton.innerHTML='Exit Settings';
-thumMenu.style.cursor="default";
+            gbs.style.display="flex";
+            gbs.style.zIndex="4";
+            gbs.addEventListener("click",()=>{
+                gbs.remove();
+                customizeThumb.hidden=false;
+            });
+            document.getElementById("root").appendChild(gbs);
+            gbs.appendChild(thumMenu);
+            thumMenu.className="SettingsMenu SmallTextLight";
+            thumMenu.style.fixed=true;
+            thumMenu.style.width="75%";
+            thumMenu.style.height="75%";
+            var exitbutton = document.createElement("div");
+            exitbutton.id="bues";
+            exitbutton.className="NewButton RedButton SettingsResumeExitButton SettingsExitButton";
+            var exitbutton1 = document.createElement("div");
+            exitbutton1.className="ButtonBottomBorder";
+            exitbutton.appendChild(exitbutton1);
+            var exitbutton2=document.createElement("div");
+            exitbutton2.className="ButtonTopBorder"
+            exitbutton.appendChild(exitbutton2);
+            var scl = document.createElement("div");
+            scl.appendChild(exitbutton);
+            exitbutton.innerHTML='Exit Settings';
+            thumMenu.style.cursor="default";
             exitbutton.style.cursor="pointer";
             thumMenu.appendChild(scl);
-var selection = document.createElement("select");
+            var selection = document.createElement("select");
             selection.className="SmallTextLight NewButton BlueButton";
             thumMenu.appendChild(selection);
-        thumMenu.style.position="fixed";
-        document.getElementById("bues").addEventListener("click",()=>{
-           gbs.remove();
- customizeThumb.hidden=false;
-        });
+            thumMenu.style.position="fixed";
+            document.getElementById("bues").addEventListener("click",()=>{
+                gbs.remove();
+                customizeThumb.hidden=false;
+            });
         });
 
-       
-    
+
+
 
         //  divraButts.innerHTML='<div class="start-screen-recording"><div><div class="rec-dot"></div><span>Start</span></div></div><script src="https://api.apowersoft.com/screen-recorder?lang=en" defer></script>'
         //  divraButts.appendChild(record);
@@ -1514,15 +2112,15 @@ var selection = document.createElement("select");
         // setInterval(autoRESPAWN,6001);
 
 
-       var mch= setInterval(makeCh,5000);
+        var mch= setInterval(makeCh,5000);
         function attheendofthecodeyouwillalwaysmakeafunctionsnamethatissolongucantcomprehendandobviouslyyouneednospacesanduhav2spelletwromg (){
- changeCrosshair.value=String(lS);
+            changeCrosshair.value=String(localStorage.getItem("Crosshair"));
+
             console.log("Divra done loading. Entering Bloxd.io.");
             console.log(changeCrosshair.value);
         }
 
         divraButts.appendChild(Bigsmall);
         setTimeout(1000,attheendofthecodeyouwillalwaysmakeafunctionsnamethatissolongucantcomprehendandobviouslyyouneednospacesanduhav2spelletwromg);
-    })();
-
-
+    }
+})();
