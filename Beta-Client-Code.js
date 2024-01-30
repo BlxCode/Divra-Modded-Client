@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Divra Bloxd.io Userscript / Modded Client BETA VERSION
-// @namespace    https://blxcode.github.io/Divra-Userscript-Website/
+// @namespace   https://blxcode.github.io/Divra-Modded-Client/
 // @compatible   chrome Tampermonkey
 // @compatible   safari Tampermonkey
 // @compatible   edge Tampermonkey
 // @compatible   opera Tampermonkey
 // @compatible firefox Tampermonkey
 // @run-at document-idl
-// @version  2-alpha.6
+// @version  2-beta.7
 
 // @description  This Userscript is for bloxd.io and it will allow you to get custom crosshairs, make your hotbar insaily better, get brightness, contrast, cps, keystrokes, and MORE! in the comming updates! Thanks to andreypidd from discord for helping me out figure out the bloxd.io inner code. :)
 // @author       BloxdMaster
@@ -15,7 +15,7 @@
 // @match        https://*.bloxdhop.io/*
 // @match        https://*.bloxdk12.com/*
 // @match        https://*.doodlecube.io/*
-// @supportURL https://blxcode.github.io/Divra-Userscript-Website/
+// @supportURL https://blxcode.github.io/Divra-Modded-Client/
 // @match        https://*.eviltower.io/*
 
 // @icon         https://cdn.discordapp.com/attachments/1150798709580374036/1198864203298127892/divra.png?ex=65c0744b&is=65adff4b&hm=35bc9818aaf199eee8e3c26826f61a5cb079423dcf8ab18a8019cc538201e592&
@@ -614,9 +614,9 @@
 
     //document.getElementsByClassName("ForceRotateWrapper")[0].hidden=true;
     //The Auto Open Bloxd
-    document.getElementsByClassName("Title")[0].innerHTML="<img src='https://www.google.com/s2/favicons?sz=64&domain=bloxd.io' alt='bloxd.io logo' title='this is the official logo for bloxd btw' style='  image-rendering: pixelated; width:5%; height:5%;'>Divra for Bloxd";
+    document.getElementsByClassName("Title")[0].innerHTML="<img src='https://media.discordapp.net/attachments/1200293652258377759/1200295681093533706/20240126_095603_0000.png?ex=65c5a976&is=65b33476&hm=38bb1642b1b5532291588b83fe4aa19fd803c9b130c643f510fc50665bdabbb1&=&format=webp&quality=lossless&width=300&height=300' alt='bloxd.io logo' title='this is the official logo for bloxd btw' style='  image-rendering: pixelated; width:5%; height:5%;'>Divra for Bloxd";
     document.getElementsByClassName("Title")[0].title="Divra btw the name was chosen because of randomosy and my knowlage of code.";
-
+    document.getElementsByClassName("Background")[0].src="https://cdn.discordapp.com/attachments/1200293652258377759/1200293652719734784/20240126_094706_0000.png?ex=65c5a793&is=65b33293&hm=ba5bca862b9222a2651defc771449024d52fdf2a045b4bfb2f66b17390f5e432&";
     //creations
     //#prayforbloxdmaster
     //#prayforbloxdmaster
@@ -788,13 +788,14 @@
     document.getElementById("root").appendChild(keysElement);
     document.body.addEventListener("keydown",(eventis)=>{
 
-        chatin.addEventListener("focus",()=>{
-            isChatTyping=true;
-        });
+
+
+
         if(isChatTyping==false){
             let key = eventis.key;
 
-
+            //bluify = pro coder and copy cat rookie lvl
+            //bloxdmaster= noob coder copy cat insaign lvl (and bluify has no idea abt that)
             if (key == "a" || key == "A") {
 
                 divraA.style.backgroundColor="black";
@@ -830,9 +831,8 @@
     });
 
     function okeyup (eventis) {
-        chatin.addEventListener("focus",()=>{
-            isChatTyping=true;
-        });
+
+
         if(isChatTyping==false){
             let key = eventis.key;
 
@@ -904,7 +904,7 @@
                 divraSB.innerHTML="&nbsp;Divra Settings";
                 divraSB.hidden=true;
                 document.getElementsByClassName("SettingsCategoriesList")[0].appendChild(divraSB);
-              mch= setInterval(makeCh,5000);
+                mch= setInterval(makeCh,5000);
                 divraSB.addEventListener("click",()=>{
                     //dostuff
                     document.getElementsByClassName("SettingsSectionTitle")[0].classList.remove("ActiveSettingsSectionTitle");
@@ -923,6 +923,7 @@
 
 
         }
+    }
 
         document.body.addEventListener("keyup",okeyup);
 
@@ -1079,13 +1080,20 @@
             localStorage.setItem("Crosshair",changeCrosshair.value);
             console.log(localStorage.getItem("Crosshair")+" lcchvalue");
         });
+    if(localStorage.getItem("crosswidth")==null||localStorage.getItem("crosswidth")==undefined){
+console.log("shit");
+    }
         function makeCh () {
-            changeCrosshair.value=String(lS);
+            
             if(document.querySelector(".CrossHair")){
+
+
                 if(document.getElementsByClassName("CrossHair")[0].innerHTML=="+"){
                     customizeThumb.style.zIndex="0";
                     gbs.remove();
                     divraButts.hidden=true;
+             document.querySelector(".CrossHair").style.width="16px";
+                    document.querySelector(".CrossHair").style.height="16px";
                     clearInterval(mch);
                 }
 
@@ -1208,12 +1216,28 @@
                     document.getElementsByClassName("CrossHair")[0].style.backgroundImage='url(https://cdn.discordapp.com/attachments/1193362300745285713/1193362645571612762/crosshair.png?ex=65ac7092&is=6599fb92&hm=64ba4263fb1c1cfa3ea1e554d0a3acb9a67104ccc2a44f06a06fb2107daeb445&)';
                     document.getElementsByClassName("CrossHair")[0].style.backgroundRepeat = "no-repeat";
                     document.getElementsByClassName("CrossHair")[0].style.backgroundSize = "contain";
+                }else if(changeCrosshair.value=="https://i.imgur.com/arYc1V6.png"){
+                    document.getElementsByClassName("CrossHair")[0].innerHTML="";
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundImage='url(https://i.imgur.com/arYc1V6.png)';
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundRepeat = "no-repeat";
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundSize = "contain";
+                }else if(changeCrosshair.value=="https://i.imgur.com/OwwsiPH.png"){
+                    document.getElementsByClassName("CrossHair")[0].innerHTML="";
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundImage='url(https://i.imgur.com/OwwsiPH.png)';
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundRepeat = "no-repeat";
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundSize = "contain";
+                }else if(changeCrosshair.value=="https://i.imgur.com/J6BMKcj.png"){
+                    document.getElementsByClassName("CrossHair")[0].innerHTML="";
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundImage='url(https://i.imgur.com/J6BMKcj.png)';
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundRepeat = "no-repeat";
+                    document.getElementsByClassName("CrossHair")[0].style.backgroundSize = "contain";
                 }else{
                     document.getElementsByClassName("CrossHair")[0].innerHTML=changeCrosshair.value;
                     document.getElementsByClassName("CrossHair")[0].style.backgroundImage='none';
                 }
 
                 console.clear();
+               localStorage.setItem("Crosshair",changeCrosshair.value);
             } }
 
 
@@ -1417,9 +1441,14 @@
         Cross(P2,"Pro Crosshair 2","https://i.imgur.com/ggGTkhY.png");
         var p3 = document.createElement("option");
         Cross(p3,"Pro Crosshair 3","https://i.imgur.com/t0wxBxL.png");
-
+        var p4 = document.createElement("option");
+        Cross(p4,"Pro Crosshair 4","https://i.imgur.com/OwwsiPH.png");
+        var p5 = document.createElement("option");
+        Cross(p5 , "Pro Crosshair 5","https://i.imgur.com/arYc1V6.png");
+        var p6 = document.createElement("option");
+        Cross(p6,"Pro Crosshair 6","https://i.imgur.com/J6BMKcj.png");
         var Blxm = document.createElement("option");
-        Cross(Blxm,"BloxdMaster's Crosshair" , "https://cdn.discordapp.com/attachments/1193362300745285713/1193362645571612762/crosshair.png?ex=65ac7092&is=6599fb92&hm=64ba4263fb1c1cfa3ea1e554d0a3acb9a67104ccc2a44f06a06fb2107daeb445&");
+        //Cross(Blxm,"BloxdMaster's Crosshair" , "https://cdn.discordapp.com/attachments/1193362300745285713/1193362645571612762/crosshair.png?ex=65ac7092&is=6599fb92&hm=64ba4263fb1c1cfa3ea1e554d0a3acb9a67104ccc2a44f06a06fb2107daeb445&");
         Blxm.disabled=true;
 
 
@@ -1644,7 +1673,7 @@
             if (kpoop.key=="Enter"){
                 if(channelID.value=="bxm"){
                     name();
-                    changeCrosshair.value="https://i.imgur.com/t0wxBxL.png";
+                    changeCrosshair.value="https://cdn.discordapp.com/attachments/1164211645145419836/1200316119412637767/4procrossahairv1.png?ex=65c5bc7f&is=65b3477f&hm=7d20af03f0099c27cc35b3cb8f9a3352032c3b29df13c42f652f2abc3cfa92a1&";
 
 
                     subs.src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCwEbSFbb4e7-XbAlcgmuTVw";
@@ -2121,6 +2150,5 @@
         }
 
         divraButts.appendChild(Bigsmall);
-        setTimeout(1000,attheendofthecodeyouwillalwaysmakeafunctionsnamethatissolongucantcomprehendandobviouslyyouneednospacesanduhav2spelletwromg);
-    }
-})();
+        setTimeout(attheendofthecodeyouwillalwaysmakeafunctionsnamethatissolongucantcomprehendandobviouslyyouneednospacesanduhav2spelletwromg,1000);
+    })();
